@@ -1,4 +1,7 @@
 .container {
-    margin-left: 25%;
-    margin-right: 25%
+    width: 640px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
 }
