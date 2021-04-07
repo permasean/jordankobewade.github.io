@@ -3,13 +3,690 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/assets/css/main.css">
-
+        <script src="/assets/js/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
         <title>pycomma</title>
     </head>
     <body>
-        <div class="body">
+        <div class="main">
+            <div class="navigation">
+                <div class="title">Navigation</div>
+                <ul>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#start">Start Example</a></li>
+                    <li><a href="#add_column">add_column</a></li>
+                    <li><a href="#add_row">add_row</a></li>
+                    <li><a href="#append">append</a></li>
+                    <li><a href="#assign_primary">assign_primary</a></li>
+                    <li><a href="#change">change</a></li>
+                    <li><a href="#change_column_name">change_column_name</a></li>
+                    <li><a href="#column_stats">column_stats</a></li>
+                    <li><a href="#column_values">column_values</a></li>
+                    <li><a href="#delete_column">delete_column</a></li>
+                    <li><a href="#delete_row">delete_row</a></li>
+                    <li><a href="#delete_rows">delete_rows</a></li>
+                    <li><a href="#dimension">dimension</a></li>
+                    <li><a href="#file_is_closed">file_is_closed</a></li>
+                    <li><a href="#fill_empty">fill_empty</a></li>
+                    <li><a href="#find_row">find_row</a></li>
+                    <li><a href="#find_rows">find_rows</a></li>
+                    <li><a href="#get">get</a></li>
+                    <li><a href="#get_config">get_config</a></li>
+                    <li><a href="#get_configs">get_configs</a></li>
+                    <li><a href="#get_data">get_data</a></li>
+                    <li><a href="#get_header">get_header</a></li>
+                    <li><a href="#get_json">get_json</a></li>
+                    <li><a href="#get_primary">get_primary</a></li>
+                    <li><a href="#get_row_values">get_row_values</a></li>
+                    <li><a href="#has_empty">has_empty</a></li>
+                    <li><a href="#maximum">maximum</a></li>
+                    <li><a href="#mean">mean</a></li>
+                    <li><a href="#median">median</a></li>
+                    <li><a href="#minimum">minimum</a></li>
+                    <li><a href="#prepare">prepare</a></li>
+                    <li><a href="#rearrange_columns">rearrange_columns</a></li>
+                    <li><a href="#replace">replace</a></li>
+                    <li><a href="#save_as_csv">save_as_csv</a></li>
+                    <li><a href="#save_as_json">save_as_json</a></li>
+                    <li><a href="#set_config">set_config</a></li>
+                    <li><a href="#set_header">set_header</a></li>
+                    <li><a href="#show">show</a></li>
+                    <li><a href="#sort_by_column">sort_by_column</a></li>
+                    <li><a href="#stdev">stdev</a></li>
+                    <li><a href="#strip">strip</a></li>
+                    <li><a href="#sum">sum</a></li>
+                    <li><a href="#switch_columns">switch_columns</a></li>
+                    <li><a href="#unique_values">unique_values</a></li>
+                    <li><a href="#value_counts">value_counts</a></li>
+                </ul>
+                <div class="footer">pycomma v0.1.0</div>
+                <div class="footer">authored by sean hwang</div>
+            </div>
             <div class="container">
-                Hello World!
+                <div class="title">
+                    pycomma
+                </div>
+                <div class="title-description">
+                    A csv processor designed to emulate data processing workflows completely within a python shell 
+                </div>
+                <div id="installation" class="section">
+                    <div class="section-title">
+                        Installation
+                    </div>
+                </div>
+                <div id="start" class="section">
+                    <div class="section-title">
+                        Start Example
+                    </div>
+                </div>
+                <div id="add_column" class="section">
+                    <div class="section-title">
+                        add_column
+                    </div>
+                    <div class="section-description">
+                        Description: adds a column
+                    </div>
+                    <div class="section-function">
+                        add_column<i>(column_name, data)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to add</p>
+                        <p>data : list : data for the column to add</p>
+                    </div>
+                </div>
+                <div id="add_row" class="section">
+                    <div class="section-title">
+                        add_row
+                    </div>
+                    <div class="section-description">
+                        Description: adds a row
+                    </div>
+                    <div class="section-function">
+                        add_row<i>(data)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>data : list : data for the row to add</p>
+                    </div>
+                </div>
+                <div id="append" class="section">
+                    <div class="section-title">
+                        append
+                    </div>
+                    <div class="section-description">
+                        Description: appends a string to all values in a column
+                    </div>
+                    <div class="section-function">
+                        append<i>(column_name, str_to_append)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to apply append</p>
+                        <p>str_to_append : string : string to append to values in column</p>
+                    </div>
+                </div>
+                <div id="assign_primary" class="section">
+                    <div class="section-title">
+                        assign_primary
+                    </div>
+                    <div class="section-description">
+                        Description: assigns a column as primary key, which is needed for certain functions to work
+                    </div>
+                    <div class="section-function">
+                        assign_primary<i>(column_name)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to assign as primary</p>
+                    </div>
+                </div>
+                <div id="change" class="section">
+                    <div class="section-title">
+                        change
+                    </div>
+                    <div class="section-description">
+                        Description: changes matching values in a column to a new value
+                    </div>
+                    <div class="section-function">
+                        change<i>(column_name, changing, change_to, case_matters=False)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to look within for value to change</p>
+                        <p>changing : string : value being changed</p>
+                        <p>change_to: string : new value that will replace values matching changing</p>
+                        <p>case_matters : boolean : set True to make case sensitive when searching for value matches</p>
+                    </div>
+                </div>
+                <div id="change_column_name" class="section">
+                    <div class="section-title">
+                        change_column_name
+                    </div>
+                    <div class="section-description">
+                        Description: changes name of a column
+                    </div>
+                    <div class="section-function">
+                        change_column_name<i>(column_name, change_to)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to change</p>
+                        <p>change_to : string : new column name</p>
+                    </div>
+                </div>
+                <div id="column_stats" class="section">
+                    <div class="section-title">
+                        column_stats
+                    </div>
+                    <div class="section-description">
+                        Description: returns all available statistics for a column in a dict
+                    </div>
+                    <div class="section-function">
+                        column_stats<i>(column_name, ignore_na=False) -> dict</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to perform statistics</p>
+                        <p>ignore_na : boolean : setting to True will override error that occurs when non-numerical values are found within the column, and such values will simply be ignored from calculations</p>
+                    </div>
+                </div>
+                <div id="column_values" class="section">
+                    <div class="section-title">
+                        column_values
+                    </div>
+                    <div class="section-description">
+                        Description: returns a list containing all values of a column
+                    </div>
+                    <div class="section-function">
+                        column_values<i>(column_name) -> list</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to retrieve values from</p>
+                    </div>
+                </div>
+                <div id="delete_column" class="section">
+                    <div class="section-title">
+                        delete_column
+                    </div>
+                    <div class="section-description">
+                        Description: delete a column
+                    </div>
+                    <div class="section-function">
+                        delete_column<i>(column_name)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to delete</p>
+                    </div>
+                </div>
+                <div id="dimension" class="section">
+                    <div class="section-title">
+                        dimension
+                    </div>
+                    <div class="section-description">
+                        Description: returns a dict containing number of rows and columns of the csv, excluding header
+                    </div>
+                    <div class="section-function">
+                        dimension<i>() -> dict</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="file_is_closed" class="section">
+                    <div class="section-title">
+                        file_is_closed
+                    </div>
+                    <div class="section-description">
+                        Description: returns a boolean that indicates whether the file has been closed or not
+                    </div>
+                    <div class="section-function">
+                        file_is_closed<i>() -> bool</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="fill_empty" class="section">
+                    <div class="section-title">
+                        fill_empty
+                    </div>
+                    <div class="section-description">
+                        Description: fills all empty values in a column with new value
+                    </div>
+                    <div class="section-function">
+                        fill_empty<i>(column_name, fill_with)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to fill empty values</p>
+                        <p>fill_with : string : new value to fill empty values with</p>
+                    </div>
+                </div>
+                <div id="find_row" class="section">
+                    <div class="section-title">
+                        find_row
+                    </div>
+                    <div class="section-description">
+                        Description: returns index of row found via a primary key value
+                    </div>
+                    <div class="section-function">
+                        find_row<i>(primary_column_value) -> int</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>primary_column_value : int, string : primary key value to look for</p>
+                    </div>
+                </div>
+                <div id="find_rows" class="section">
+                    <div class="section-title">
+                        find_rows
+                    </div>
+                    <div class="section-description">
+                        Description: returns a list containing all indices of rows found via primary key values provided
+                    </div>
+                    <div class="section-function">
+                        find_rows<i>(primary_column_values) -> list</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>primary_column_values : list[string or integer] : list of primary key values to look for</p>
+                    </div>
+                </div>
+                <div id="get" class="section">
+                    <div class="section-title">
+                        get
+                    </div>
+                    <div class="section-description">
+                        Description: returns a dict representation of row found via index
+                    </div>
+                    <div class="section-function">
+                        get<i>(idx, column_names=[]) -> dict</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>idx : int : index of row to get</p>
+                        <p>column_names : list : list of columns to include in resulting dict, default value will include all columns</p>
+                    </div>
+                </div>
+                <div id="get_config" class="section">
+                    <div class="section-title">
+                        get_config
+                    </div>
+                    <div class="section-description">
+                        Description: returns a dict containing a config and its value
+                    </div>
+                    <div class="section-function">
+                        get_config<i>(config) -> dict</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>config : string : name of config to get</p>
+                    </div>
+                </div>
+                <div id="get_configs" class="section">
+                    <div class="section-title">
+                        get_configs
+                    </div>
+                    <div class="section-description">
+                        Description: returns a dict containing all configs and their values
+                    </div>
+                    <div class="section-function">
+                        get_configs<i>()</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="get_data" class="section">
+                    <div class="section-title">
+                        get_data
+                    </div>
+                    <div class="section-description">
+                        Description: returns data, which is a class property containing a list of rows extracted from csv
+                    </div>
+                    <div class="section-function">
+                        get_data<i>() -> list</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="get_header" class="section">
+                    <div class="section-title">
+                        get_header
+                    </div>
+                    <div class="section-description">
+                        Description: returns header, which is a class property containing a list of column names extracted from csv
+                    </div>
+                    <div class="section-function">
+                        get_header<i>() -> list</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="get_json" class="section">
+                    <div class="section-title">
+                        get_json
+                    </div>
+                    <div class="section-description">
+                        Description: returns json (dictionary) representation of the csv
+                    </div>
+                    <div class="section-function">
+                        get_json<i>() -> dict</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="get_primary" class="section">
+                    <div class="section-title">
+                        get_primary
+                    </div>
+                    <div class="section-description">
+                        Description: returns primary_column_name, which is a class property containing name of column set as the primary key
+                    </div>
+                    <div class="section-function">
+                        get_primary<i>() -> str</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="get_row_values" class="section">
+                    <div class="section-title">
+                        get_row_values
+                    </div>
+                    <div class="section-description">
+                        Description: returns list containing values of a row found via index
+                    </div>
+                    <div class="section-function">
+                        get_row_values<i>(idx) -> list</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>idx : integer : index of row to get values from</p>
+                    </div>
+                </div>
+                <div id="has_empty" class="section">
+                    <div class="section-title">
+                        has_empty
+                    </div>
+                    <div class="section-description">
+                        Description: returns a boolean that indicates whether a column contains empty values
+                    </div>
+                    <div class="section-function">
+                        has_empty<i>(column_name) -> bool</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_names : string : name of column to check for empty values</p>
+                    </div>
+                </div>
+                <div id="maximum" class="section">
+                    <div class="section-title">
+                        maximum
+                    </div>
+                    <div class="section-description">
+                        Description: returns float representing the maximum value of a column
+                    </div>
+                    <div class="section-function">
+                        maximum<i>(column_name) -> float</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to compute maximum value</p>
+                    </div>
+                </div>
+                <div id="mean" class="section">
+                    <div class="section-title">
+                        mean
+                    </div>
+                    <div class="section-description">
+                        Description: returns float representing the mean value of a column
+                    </div>
+                    <div class="section-function">
+                        mean<i>(column_name, ignore_na=False) -> float</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to calculate the mean of</p>
+                        <p>ignore_na : boolean : setting to True will override error that occurs when non-numerical values are found within the column, and such values will simply be ignored from calculations</p>
+                    </div>
+                </div>
+                <div id="median" class="section">
+                    <div class="section-title">
+                        median
+                    </div>
+                    <div class="section-description">
+                        Description: returns float representing the median value of a column
+                    </div>
+                    <div class="section-function">
+                        median<i>(column_name, ignore_na=False) -> float</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to calculate the median of</p>
+                        <p>ignore_na : boolean : setting to True will override error that occurs when non-numerical values are found within the column, and such values will simply be ignored from calculations</p>
+                    </div>
+                </div>
+                <div id="minimum" class="section">
+                    <div class="section-title">
+                        minimum
+                    </div>
+                    <div class="section-description">
+                        Description: returns float representing the minimum value of a column
+                    </div>
+                    <div class="section-function">
+                        minimum<i>(column_name) -> float</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to calculate the minimum of</p>
+                    </div>
+                </div>
+                <div id="prepare" class="section">
+                    <div class="section-title">
+                        prepare
+                    </div>
+                    <div class="section-description">
+                        Description: extracts data and header from csv file
+                    </div>
+                    <div class="section-function">
+                        prepare<i>()</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="rearrange_columns" class="section">
+                    <div class="section-title">
+                        rearrange_columns
+                    </div>
+                    <div class="section-description">
+                        Description: rearranges columns based on order provided
+                    </div>
+                    <div class="section-function">
+                        rearrange_columns<i>(column_names)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_names : list[string] : list of column names in desired column arrangement</p>
+                    </div>
+                </div>
+                <div id="replace" class="section">
+                    <div class="section-title">
+                        replace
+                    </div>
+                    <div class="section-description">
+                        Description: replaces a substring found among all values of a column with a new string value
+                    </div>
+                    <div class="section-function">
+                        replace<i>(column_name, substr, replace_with)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to search for substring in values</p>
+                        <p>substr : string : substring to replace</p>
+                        <p>replace_with: string : new value to replace substring</p>
+                    </div>
+                </div>
+                <div id="save_as_csv" class="section">
+                    <div class="section-title">
+                        save_as_csv
+                    </div>
+                    <div class="section-description">
+                        Description: exports to csv
+                    </div>
+                    <div class="section-function">
+                        save_as_csv<i>(file_path=None, delimiter=",")</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>file_path : string : file_path to export csv to, default will export to project directory</p>
+                        <p>delimiter : string : delimiter to build csv with, default is comma</p>
+                    </div>
+                </div>
+                <div id="save_as_json" class="section">
+                    <div class="section-title">
+                        save_as_json
+                    </div>
+                    <div class="section-description">
+                        Description: exports to json
+                    </div>
+                    <div class="section-function">
+                        save_as_json<i>(file_path=None)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>file_path : string : file_path to export json to, default will export to project directory</p>
+                    </div>
+                </div>
+                <div id="set_config" class="section">
+                    <div class="section-title">
+                        set_config
+                    </div>
+                    <div class="section-description">
+                        Description: sets config value
+                    </div>
+                    <div class="section-function">
+                        set_config<i>(config, value)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>config : string : name of config to set value</p>
+                        <p>value : string, integer : new value for config</p> 
+                    </div>
+                </div>
+                <div id="set_header" class="section">
+                    <div class="section-title">
+                        set_header
+                    </div>
+                    <div class="section-description">
+                        Description: manually sets header class property, when header is not provided within csv
+                    </div>
+                    <div class="section-function">
+                        set_header<i>(header)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>header : list[string] : list of column names to set as header</p>
+                    </div>
+                </div>
+                <div id="show" class="section">
+                    <div class="section-title">
+                        show
+                    </div>
+                    <div class="section-description">
+                        Description: displays table representation of current data
+                    </div>
+                    <div class="section-function">
+                        show<i>()</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>No parameters</p>
+                    </div>
+                </div>
+                <div id="sort_by_column" class="section">
+                    <div class="section-title">
+                        sort_by_column
+                    </div>
+                    <div class="section-description">
+                        Description: sorts data by a column
+                    </div>
+                    <div class="section-function">
+                        sort_by_column<i>(column_name, reverse=False)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to sort data with</p>
+                        <p>reverse : boolean : setting to True will sort in reverse order</p>
+                    </div>
+                </div>
+                <div id="stdev" class="section">
+                    <div class="section-title">
+                        stdev
+                    </div>
+                    <div class="section-description">
+                        Description: returns float representing the stdev of column
+                    </div>
+                    <div class="section-function">
+                        stdev<i>(column_name, ignore_na=False) -> float</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to calculate the stdev of</p>
+                        <p>ignore_na : boolean : setting to True will override error that occurs when non-numerical values are found within the column, and such values will simply be ignored from calculations</p>
+                    </div>
+                </div>
+                <div id="strip" class="section">
+                    <div class="section-title">
+                        strip
+                    </div>
+                    <div class="section-description">
+                        Description: strips whitespaces from all values of a column
+                    </div>
+                    <div class="section-function">
+                        stdev<i>(column_name, side="both")</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to strip values of</p>
+                        <p>side : string : indicates side to strip, valid values are "both", "right", "left"</p>
+                    </div>
+                </div>
+                <div id="sum" class="section">
+                    <div class="section-title">
+                        sum
+                    </div>
+                    <div class="section-description">
+                        Description: returns float representing the sum of column
+                    </div>
+                    <div class="section-function">
+                        sum<i>(column_name, ignore_na=False) -> float</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to calculate the sum of</p>
+                        <p>ignore_na : boolean : setting to True will override error that occurs when non-numerical values are found within the column, and such values will simply be ignored from calculations</p>
+                    </div>
+                </div>
+                <div id="switch_columns" class="section">
+                    <div class="section-title">
+                        switch_columns
+                    </div>
+                    <div class="section-description">
+                        Description: switches two columns in places
+                    </div>
+                    <div class="section-function">
+                        switch_columns<i>(x_column_name, y_column_name)</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>x_column_name : string : name of column to switch to y_column_name position</p>
+                        <p>y_column_name : string : name of column to switch to x_column_name position</p>
+                    </div>
+                </div>
+                <div id="unique_values" class="section">
+                    <div class="section-title">
+                        unique_values
+                    </div>
+                    <div class="section-description">
+                        Description: returns list containing unique values of a column
+                    </div>
+                    <div class="section-function">
+                        unique_values<i>(column_name) -> list</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to get unique values from</p>
+                    </div>
+                </div>
+                <div id="value_counts"class="section">
+                    <div class="section-title">
+                        value_counts
+                    </div>
+                    <div class="section-description">
+                        Description: returns dict containing values as dict-keys and counts as dict-values of a column
+                    </div>
+                    <div class="section-function">
+                        value_counts<i>(column_name) -> dict</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>column_name : string : name of column to get value counts</p>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

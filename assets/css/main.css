@@ -1,5 +1,88 @@
-.container {
-    width: 640px;
+.container{
+    width: 75%;
+    float: right;
+    border-left: 1px solid rgba(0,0,0,0.3);
+    padding-left: 10px;
+}
+
+.title{
+    font-size: 2rem;
+    color: lightseagreen;
+}
+
+.title-description{
+    margin-top: 5px;
+    font-size: 1rem;
+    font-family: 'Monaco';
+}
+
+.navigation{
+    margin-top: 5px;
+    position: fixed;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+.navigation .title {
+    font-size: 1.2rem;
+}
+
+.navigation .footer {
+    font-size: 0.8rem;
+}
+
+.navigation a {
+    color: grey;
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.navigation .active {
+    color: black;
+    text-decoration: none;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.main {
     margin-left: auto;
     margin-right: auto;
+    width: 50%;
+    padding: 0;
+}
+
+.section {
+    margin-top: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    padding-bottom: 2px;
+}
+
+.section-description {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.section-parameters {
+    margin-left: 20px;
+}
+
+.section-function {
+    margin-left: 5px;
+}
+
+.section-title {
+    font-size: 1.2rem;
 }
