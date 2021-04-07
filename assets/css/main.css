@@ -36,6 +36,15 @@
     text-decoration: none;
 }
 
+.link {
+    color: grey;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: black;
+}
+
 .navigation a:hover {
     color: black;
     text-decoration: none;
@@ -50,6 +59,13 @@
     list-style: none;
     padding: 0;
     margin-top: 5px;
+}
+
+.codeblock {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: monospace;
+    background-color: rgb(242, 242, 242);
 }
 
 body {
@@ -68,6 +84,15 @@ body {
     margin-top: 15px;
     border-bottom: 1px solid rgba(0,0,0,0.3);
     padding-bottom: 2px;
+}
+
+.section-configuration {
+    margin-top: 2.5px;
+    margin-bottom: 5px;
+}
+
+.section-configurations {
+    margin-bottom: 5px;
 }
 
 .section-description {

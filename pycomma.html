@@ -13,7 +13,9 @@
                 <div class="title">Navigation</div>
                 <ul>
                     <li><a href="#installation">Installation</a></li>
-                    <li><a href="#start">Start Example</a></li>
+                    <li><a href="#quickstart">Quickstart</a></li>
+                    <li><a href="#configs">Configurations</a></li>
+                    <li><a href="#init">__init__</a></li>
                     <li><a href="#add_column">add_column</a></li>
                     <li><a href="#add_row">add_row</a></li>
                     <li><a href="#append">append</a></li>
@@ -67,16 +69,63 @@
                     pycomma
                 </div>
                 <div class="title-description">
-                    A csv processor designed to emulate data processing workflows completely within a python shell 
+                    A python library designed to allow csv data processing workflows completely within a python shell 
                 </div>
                 <div id="installation" class="section">
                     <div class="section-title">
                         Installation
                     </div>
+                    Requires python version newer than or equal to 3.6
+                    <div class="codeblock">
+                        pip install pycomma
+                    </div>
+                    or if using within shell,
+                    <div class="codeblock">
+                        pip install --user pycomma
+                    </div>
                 </div>
-                <div id="start" class="section">
+                <div id="quickstart" class="section">
                     <div class="section-title">
-                        Start Example
+                        Quickstart Example
+                    </div>
+                    <div class="codeblock">$python3</div>
+                    <div class="codeblock">
+                        <p>>>> from pycomma.comma import Comma</p>
+                        <P>>>> comma = Comma("data.csv", includes_header=True)</P>
+                        <p>>>> comma.prepare()</p>
+                        <p>Preparation complete</p>
+                        <p>>>> comma.set_config("max_row_display", 10)</p>
+                        <p>>>> comma.assign_primary("id")</p>
+                        <p>>>> comma.sort_by_column("id")</p>
+                        <p>>>> comma.show()</p>
+                    </div>
+                </div>
+                <div id="configs" class="section">
+                    <div class="section-title">
+                        Configurations
+                    </div>
+                    <div class="section-configuration">
+                        Following can be changed via <a class="link" href="#set_config">set_config</a>:
+                    </div>
+                    <div class="section-configurations">
+                        <div>success_messages : True or False : turns on/off success messages after successful function calls</div>
+                        <div>max_row_display : integer : set number of rows to be shown when show() is called</div>
+                    </div>
+                </div>
+                <div id="init" class="section">
+                    <div class="section-title">
+                        __init__
+                    </div>
+                    <div class="section-description">
+                        Description: called when Comma is instantiated
+                    </div>
+                    <div class="section-function">
+                        __init__<i>(filepath, includes_header=True, delimiter=",")</i>
+                    </div>
+                    <div class="section-parameters">
+                        <p>filepath : string : path to csv file</p>
+                        <p>includes_header : boolean : indicate whether or not csv file contains header</p>
+                        <p>delimiter : string : delimiter to parse csv</p>
                     </div>
                 </div>
                 <div id="add_column" class="section">
