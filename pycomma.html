@@ -61,7 +61,7 @@
                     <li><a href="#unique_values">unique_values</a></li>
                     <li><a href="#value_counts">value_counts</a></li>
                 </ul>
-                <div class="footer">pycomma v0.1.0</div>
+                <div class="footer">pycomma v0.1.2</div>
                 <div class="footer">authored by sean hwang</div>
             </div>
             <div class="container">
@@ -630,10 +630,13 @@
                         Description: displays table representation of current data
                     </div>
                     <div class="section-function">
-                        show<i>()</i>
+                        show<i>(row_start=-1, row_end=-1)</i>
                     </div>
                     <div class="section-parameters">
-                        <p>No parameters</p>
+                        <p>row_start : integer : starting row index</p>
+                        <p>row_end : integer : ending row index</p>
+                        <p class="example">Example : <i>show()</i> prints rows as limited by max_row_display config</p>
+                        <p class="example">Example : <i>show(0, 1000)</i> prints rows 0 through 1000, overrides max_row_display config</p>
                     </div>
                 </div>
                 <div id="sort_by_column" class="section">
